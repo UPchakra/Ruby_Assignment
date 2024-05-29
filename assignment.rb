@@ -57,3 +57,33 @@ end
 input = "hello how are you"
 output = character_count(input)
 puts output.map { |key, value| "#{key}: #{value}" }.join(", ")
+
+############ 4 ############
+
+# converts a number from one number system to another
+#   Step 1: Convert the original number to decimal
+#   Step 2: Convert the decimal number to the target number system
+# @param number [Integer]
+# @param from [String]
+# @param to [String]
+# @return [Integer]
+def convert_number(number, from:, to:)
+  base = {
+    "binary" => 2,
+    "octal" => 8,
+    "decimal" => 10,
+    "hex" => 16
+  }
+  from_base = base[from]
+  to_base = base[to]
+
+  # NOTE: converted into string first; number.to_i(10) raises an error in Ruby
+  number.to_s.to_i(from_base).to_s(to_base)
+end
+
+# Example usage:
+puts convert_number(42, from: "decimal", to: "octal")
+puts convert_number(42, from: "decimal", to: "binary")
+puts convert_number("101010", from: "binary", to: "decimal")
+puts convert_number("52", from: "octal", to: "decimal")
+puts convert_number("2A", from: "hex", to: "decimal")
