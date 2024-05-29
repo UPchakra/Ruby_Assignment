@@ -38,3 +38,22 @@ def print_fizz_buzz
     end
   end
 end
+
+# Example usage:
+puts print_fizz_buzz
+
+############ 3 ############
+
+# loops through the characters of a string and counts the occurrences of each character
+# @param str [String]
+# @return [Hash]
+def character_count(str)
+  str.each_char.with_object(Hash.new(0)) do |char, counts|
+    counts[char] += 1 unless char == " "
+  end
+end
+
+# Example usage:
+input = "hello how are you"
+output = character_count(input)
+puts output.map { |key, value| "#{key}: #{value}" }.join(", ")
