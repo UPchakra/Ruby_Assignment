@@ -87,3 +87,25 @@ puts convert_number(42, from: "decimal", to: "binary")
 puts convert_number("101010", from: "binary", to: "decimal")
 puts convert_number("52", from: "octal", to: "decimal")
 puts convert_number("2A", from: "hex", to: "decimal")
+
+############ 5 ############
+
+# prints a box with numbers from 1 to n
+#   Step 1: Calculate the width of the box, if n = 99; each box width = 2
+#   Step 2: Create the horizontal line for number box
+#   Step 3: Combine horizontal line, numbers, and horizontal line
+# @param n [Integer]
+# @return [void]
+def boxy(n)
+  box_width = n.to_s.size
+  horizontal_line = "#{' ' * box_width}-" * n
+
+  numbers = (1..n).map { |i| format("%#{box_width}d", i) }
+  output = "|#{numbers.join('|')}|"
+
+  "#{horizontal_line}\n#{output}\n#{horizontal_line}"
+end
+
+puts boxy(3)
+puts boxy(23)
+puts boxy(50)
