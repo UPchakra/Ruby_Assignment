@@ -23,18 +23,18 @@ puts greatest_value(3, 2, 1)
 # for multiples of 3 and 5, prints "FizzBuzz"
 # @return [void]
 def print_fizz_buzz
-  (1..100).each do |i|
+  (1..100).map do |i|
     mod_3 = (i % 3).zero?
     mod_5 = (i % 5).zero?
 
     if mod_3 && mod_5
-      puts "FizzBuzz"
+       "FizzBuzz"
     elsif mod_3
-      puts "Fizz"
+       "Fizz"
     elsif mod_5
-      puts "Buzz"
+       "Buzz"
     else
-      puts i
+       i
     end
   end
 end
@@ -107,5 +107,5 @@ def boxy(n)
 end
 
 puts boxy(3)
-puts boxy(23)
+puts boxy(12)
 puts boxy(50)
